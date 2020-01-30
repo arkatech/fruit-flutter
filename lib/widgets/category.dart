@@ -16,12 +16,13 @@ class CategoryView extends StatefulWidget{
 class CategoryViewState extends State<CategoryView>{
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return new Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         new Container(
-            width:85,
-            height: 85,
+            width:size.width*0.20,
+            height:size.width*0.20,
             decoration: new BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(5),
@@ -29,7 +30,7 @@ class CategoryViewState extends State<CategoryView>{
             ),
             child: Image.asset(widget.category.image, scale: 1.5,)
         ),
-        new Text(widget.category.name, style: TextStyle(fontFamily: fontFamily, fontSize: 14),)
+        new Container(width:size.width*0.2, height: size.width*0.06,child: new FittedBox(child: new Text(widget.category.name, style: TextStyle(fontFamily: fontFamily),),),)
       ],
     );
   }

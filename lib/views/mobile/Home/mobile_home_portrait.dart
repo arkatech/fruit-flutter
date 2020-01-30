@@ -122,7 +122,7 @@ class MobileHomePortraitState extends State<MobileHomePortrait>{
             ),),
             new Container(
                 width: size.width,
-                height: 250,
+                height: size.width/1.5,
                 margin: new EdgeInsets.symmetric(horizontal: 11, vertical: 0),child:
             GridView.builder(
               physics: NeverScrollableScrollPhysics(),
@@ -144,7 +144,7 @@ class MobileHomePortraitState extends State<MobileHomePortrait>{
               ],
             ),),
             new Container(
-              height: 200,
+              height: size.width/1.85,
               margin: new EdgeInsets.symmetric(horizontal:16, vertical: 5),
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
