@@ -28,9 +28,9 @@ class CategoryViewState extends State<CategoryView>{
               borderRadius: BorderRadius.circular(5),
               border: new Border.all(color: new Color(baseColor),width: 1.5),
             ),
-            child: Image.asset(widget.category.image, scale: 1.5,)
+            child: Image.asset(widget.category.image, scale: size.width>size.height?1.25:1.5,)
         ),
-        new Container(width:size.width*0.2, height: size.width*0.06,child: new FittedBox(child: new Text(widget.category.name, style: TextStyle(fontFamily: fontFamily),),),)
+        new Container(child: new Text(widget.category.name, style: TextStyle(fontFamily: fontFamily),),)
       ],
     );
   }

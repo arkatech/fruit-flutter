@@ -29,7 +29,7 @@ class MobileHomePortraitState extends State<MobileHomePortrait>{
             new Row(
               children: <Widget>[
                 new Container(
-                  width: 0.8 * size.width,
+                  width: size.width-90,
                   height: 40,
                   margin: new EdgeInsets.all(16),
                   decoration: new BoxDecoration(
@@ -63,40 +63,43 @@ class MobileHomePortraitState extends State<MobileHomePortrait>{
                     ],
                   ),
                 ),
-                new Stack(
-                  alignment: Alignment.topLeft,
-                  children: <Widget>[
-                    new Container(
-                      width: size.width * 0.1,
-                      height: size.width * 0.1,
-                      child: new InkWell(
-                        onTap: () {
+                new Container(
+                  width: 40,
+                  child: new Stack(
+                    alignment: Alignment.topLeft,
+                    children: <Widget>[
+                      new Container(
+                        width: size.shortestSide * 0.1,
+                        height: size.shortestSide * 0.1,
+                        child: new InkWell(
+                          onTap: () {
 
-                        },
-                        child: new Container(
-                          width: 25,
-                          height: 25,
-                          margin: new EdgeInsets.all(5),
-                          decoration: new BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage("assets/images/cart.png"),
-                                  fit: BoxFit.fill)
+                          },
+                          child: new Container(
+                            width: 25,
+                            height: 25,
+                            margin: new EdgeInsets.all(5),
+                            decoration: new BoxDecoration(
+                                image: DecorationImage(
+                                    image: AssetImage("assets/images/cart.png"),
+                                    fit: BoxFit.fill)
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    new Positioned(
-                        left: size.width * 0.06,
-                        top: 0,
-                        child: new Container(
-                          width: 16,
-                          height: 16,
-                          decoration: new BoxDecoration(
-                              color: Colors.red,
-                              borderRadius: BorderRadius.circular(16)
-                          ),
-                        ))
-                  ],
+                      new Positioned(
+                          left: size.shortestSide * 0.06,
+                          top: 0,
+                          child: new Container(
+                            width: 16,
+                            height: 16,
+                            decoration: new BoxDecoration(
+                                color: Colors.red,
+                                borderRadius: BorderRadius.circular(16)
+                            ),
+                          ))
+                    ],
+                  ),
                 )
               ],
             ),
@@ -144,7 +147,7 @@ class MobileHomePortraitState extends State<MobileHomePortrait>{
               ],
             ),),
             new Container(
-              height: size.width/1.85,
+              height: size.shortestSide/1.75,
               margin: new EdgeInsets.symmetric(horizontal:16, vertical: 5),
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
