@@ -16,3 +16,8 @@ List<Category> categories =[
   new Category(id: 7, name:"ترشیجات", image:"assets/images/torshi.png"),
   new Category(id: 8, name:"غذا و کیک", image:"assets/images/food.png"),
 ];
+
+List<Category> twoCategories =[
+  new Category(id: 1, name:"ادویه‌ها", image:"assets/images/advie2.png"),
+  new Category(id: 2, name:"فرنگیجات", image:"assets/images/farangi2.png"),
+];

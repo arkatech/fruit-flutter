@@ -17,11 +17,12 @@ class ProductViewState extends State<ProductView>{
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return new Container(
-      width: size.shortestSide/2.5,
+      width: size.shortestSide/2.5+1,
       margin: new EdgeInsets.symmetric(horizontal: 5),
       decoration: new BoxDecoration(
-        color: new Color(widget.product.specialColor),
-        borderRadius: BorderRadius.circular(10)
+        color: new Color(widget.product.hasSpecial?widget.product.specialColor:0xFFFFFFFF),
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(width: 1, color: widget.product.hasSpecial?Colors.transparent:Color(baseColor))
       ),
       child: new Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -30,7 +31,7 @@ class ProductViewState extends State<ProductView>{
             children: <Widget>[
               new Align(alignment: Alignment.center ,child: new Padding(padding: new EdgeInsets.only(left: 10,top: 5), child:
               Image.asset(widget.product.image,height: 115,width: 115,))),
-              new Align(alignment: Alignment.centerLeft ,child: new Padding(padding: new EdgeInsets.only(left: 10,top: 5), child: new Text("%"+widget.product.discountPercent.toString(), style: TextStyle(fontFamily: fontFamily, fontSize: 14, color: new Color(baseColor3)),),)),
+              widget.product.hasDiscount?new Align(alignment: Alignment.centerLeft ,child: new Padding(padding: new EdgeInsets.only(left: 10,top: 5), child: new Text("%"+widget.product.discountPercent.toString(), style: TextStyle(fontFamily: fontFamily, fontSize: 14, color: widget.product.hasSpecial?new Color(baseColor3):Colors.red),),)):new Container(),
               new Container(
                 width: size.shortestSide,
                 margin: new EdgeInsets.only(left: 10, right:10, top:size.shortestSide/3.25),
@@ -43,7 +44,7 @@ class ProductViewState extends State<ProductView>{
             children: <Widget>[
               new Container(
                 width: size.shortestSide/7.65,
-                height:60,
+                height:58,
                 decoration: new BoxDecoration(
                     color: new Color(0x30263238),
                     borderRadius: new BorderRadius.only(
@@ -58,14 +59,14 @@ class ProductViewState extends State<ProductView>{
               ),
               new Container(
                 width: size.shortestSide/3.75,
-                height: 60,
+                height: 58,
                 padding: new EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 margin: new EdgeInsets.symmetric(horizontal: 0),
                 child: new Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    new Text(widget.product.discount.toString()+" تومان", textDirection: TextDirection.rtl,style: TextStyle(color: widget.product.hasDiscount? new Color(baseColor5): new Color(0xFF000000),fontFamily: fontFamily,decoration: widget.product.hasDiscount?TextDecoration.lineThrough:null)),
-                    new Visibility(child: new Text(widget.product.discount.toString()+" تومان", textDirection: TextDirection.rtl,style: TextStyle(fontFamily: fontFamily),)),
+                    new Text(widget.product.price.toString()+" تومان", textDirection: TextDirection.rtl,style: TextStyle(color: widget.product.hasDiscount? new Color(baseColor5): new Color(0xFF000000),fontFamily: fontFamily,decoration: widget.product.hasDiscount?TextDecoration.lineThrough:null)),
+                    new Visibility(visible: widget.product.hasDiscount,child: new Text(widget.product.discount.toString()+" تومان", textDirection: TextDirection.rtl,style: TextStyle(fontFamily: fontFamily),)),
                   ],
                 ),
               ),

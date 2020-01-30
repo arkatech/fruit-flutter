@@ -5,6 +5,7 @@ import 'package:fruit/styles/style.dart';
 import 'package:fruit/widgets/carousel.dart';
 import 'package:fruit/widgets/category.dart';
 import 'package:fruit/widgets/product.dart';
+import 'package:fruit/widgets/two_category.dart';
 
 class MobileHomePortrait extends StatefulWidget{
   @override
@@ -88,7 +89,7 @@ class MobileHomePortraitState extends State<MobileHomePortrait>{
                         ),
                       ),
                       new Positioned(
-                          left: size.shortestSide * 0.06,
+                          left: size.shortestSide * 0.055,
                           top: 0,
                           child: new Container(
                             width: 16,
@@ -154,7 +155,52 @@ class MobileHomePortraitState extends State<MobileHomePortrait>{
                 itemCount: products.length,
                   itemBuilder: (context,index){
                 return new ProductView(product: products[index],);
-              }),)
+              }),),
+            new Container(
+              width: size.width,
+              height: size.width/4,
+              margin: new EdgeInsets.symmetric(horizontal: 16, vertical: 5), child:
+              new TwoCategoryView(categories: twoCategories,),),
+            new Padding(padding: new EdgeInsets.symmetric(horizontal: 16, vertical: 16), child: new Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                new Padding(padding: new EdgeInsets.only(right: 5), child: new Text("محصولات تخفیف دار",style: TextStyle(fontSize: 16, fontFamily: fontFamily,color: new Color(baseColor3)),),),
+                new Padding(padding: new EdgeInsets.only(left: 5), child: new InkWell(
+                  child: new Text("مشاهده همه",style: TextStyle(fontSize: 12, fontFamily: fontFamily,color: new Color(baseColor2)),),
+                  onTap: (){},
+                ))
+
+              ],
+            ),),
+            new Container(
+              height: size.shortestSide/1.75,
+              margin: new EdgeInsets.symmetric(horizontal:16, vertical: 5),
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: products.length,
+                  itemBuilder: (context,index){
+                    return new ProductView(product: offProducts[index],);
+                  }),),
+            new Padding(padding: new EdgeInsets.symmetric(horizontal: 16, vertical: 16), child: new Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                new Padding(padding: new EdgeInsets.only(right: 5), child: new Text("عرقیجات",style: TextStyle(fontSize: 16, fontFamily: fontFamily,color: new Color(baseColor3)),),),
+                new Padding(padding: new EdgeInsets.only(left: 5), child: new InkWell(
+                  child: new Text("مشاهده همه",style: TextStyle(fontSize: 12, fontFamily: fontFamily,color: new Color(baseColor2)),),
+                  onTap: (){},
+                ))
+
+              ],
+            ),),
+            new Container(
+              height: size.shortestSide/1.75,
+              margin: new EdgeInsets.symmetric(horizontal:16, vertical: 5),
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: products.length,
+                  itemBuilder: (context,index){
+                    return new ProductView(product: waterProducts[index],);
+                  }),),
           ],
         ),
       ),

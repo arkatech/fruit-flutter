@@ -56,6 +56,12 @@ flutter:
    - assets/images/kivi.png
    - assets/images/portaghal.png
    - assets/images/toot.png
+   - assets/images/advie2.png
+   - assets/images/farangi2.png
+   - assets/images/watermelon.png
+   - assets/images/mint.png
+   - assets/images/ananas.png
+   - assets/images/ablimo.png
   #  - images/a_dot_ham.jpeg
   fonts:
     - family: IranYekan
